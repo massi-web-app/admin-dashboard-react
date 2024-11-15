@@ -1,7 +1,14 @@
 import {Link} from 'react-router-dom'
 import logo from '@assets/images/logo.svg'
+import {useForm} from "react-hook-form";
 
 const Register = () => {
+
+    const {register, watch, handleSubmit, formState: {errors}} = useForm();
+
+    const onSubmit = (data) => {
+        console.log(data);
+    }
     return (
         <>
             <div className="text-center mt-4">
@@ -21,22 +28,77 @@ const Register = () => {
             <div className="card">
                 <div className="card-body">
                     <div className="m-sm-4">
-                        <form>
+                        <form onSubmit={handleSubmit(onSubmit)}>
                             <div className="mb-3">
                                 <label className="form-label">موبایل</label>
                                 <input
-                                    className={`form-control form-control-lg`}
+                                    {...register('mobile', {
+                                        required: 'موبایل الزامی است',
+                                        minLength: 11,
+                                        maxLength: 11,
+                                    })}
+                                    className={`form-control form-control-lg ${errors.mobile && 'is-invalid'}`}
                                 />
+                                {
+                                    errors.mobile && errors.mobile.type === 'required' && (
+                                        <p className={"text-danger small fw-bold mt-1"}>
+                                            {errors.mobile?.message}
+                                        </p>
+                                    )
+                                }
+                                {
+                                    errors.mobile && (errors.mobile.type === 'minLength' || errors.mobile.type === 'maxLength') && (
+                                        <p className={"text-danger small fw-bold mt-1"}>
+                                            موبایل باید 11 رقم باشد
+                                        </p>
+                                    )
+                                }
                             </div>
                             <div className="mb-3">
                                 <label className="form-label">رمز عبور</label>
-                                <input className="form-control form-control-lg"/>
+                                <input
+                                    {...register('password', {
+                                        required: 'رمز عبور الزامی است'
+                                    })}
+                                    className={`form-control form-control-lg ${errors.password && 'is-invalid'}`}
+                                    type={"password"}
+                                />
+                                {
+                                    errors.password && errors.password.type === 'required' && (
+                                        <p className={"text-danger small fw-bold mt-1"}>
+                                            {errors.password?.message}
+                                        </p>
+                                    )
+                                }
                             </div>
                             <div className="mb-3">
                                 <label className="form-label">تکرار رمز عبور</label>
-                                <input className="form-control form-control-lg"
-                                       type="password"
+                                <input
+                                    {...register('confirm_password', {
+                                        required: 'تکرار رمز عبور الزامی هست',
+                                        validate: (value) => {
+                                            if (watch('password') !== value) {
+                                                return 'عدم تطابق با رمز وارد شده'
+                                            }
+                                        }
+                                    })}
+                                    className={`form-control form-control-lg ${errors.confirm_password && 'is-invalid'}`}
+                                    type="password"
                                 />
+                                {
+                                    errors.confirm_password && errors.confirm_password.type === 'required' && (
+                                        <p className={"text-danger small fw-bold mt-1"}>
+                                            {errors.confirm_password?.message}
+                                        </p>
+                                    )
+                                }
+                                {
+                                    errors.confirm_password && errors.confirm_password.type === 'validate' && (
+                                        <p className={"text-danger small fw-bold mt-1"}>
+                                            {errors.confirm_password?.message}
+                                        </p>
+                                    )
+                                }
                             </div>
                             <div className="text-center mt-3">
                                 <button type="submit" className="btn btn-lg btn-primary">
