@@ -1,5 +1,24 @@
 {
   "register": {
-    "register": "ثبت نام کنید"
+    "title": "آموزش آنلاین",
+    "introMessage": "جهت استفاده از ویژگی های سایت کلاسبن لطفا ثبت نام کنید",
+    "register": "ثبت نام",
+    "mobile": "موبایل",
+    "password": "رمز عبور",
+    "repeatPassword": "تکرار رمز عبور",
+    "alreadyRegistered": "از قبل ثبت نام کرده اید ؟",
+    "singIn": "ثبت نام",
+    "saving": "در حال ذخیره اطلاعات",
+    "routeLogin": "وارد شوید",
+    "successOperation": "عملیات با موفقیت انجام شد به صفحه ورود منتقل می شوید",
+    "validation": {
+      "mobileRequired": "وارد کردن موبایل الزامی است",
+      "password": "وارد کردن رمز عبور الزامی است",
+      "repeatPassword": "تکرار رمز عبور الزامی است",
+      "mobileLength": "موبایل با شامل 11 کارکتر باشد",
+      "notMatching": "رمز عبور باهم مطابقت ندارد",
+      "PasswordTooShort": "رمز عبور باید حداقل 6 کارکتر باشد",
+      "DuplicateUserName": "کاربری با این نام کاربری از قبل وجود دارد"
+    }
   }
 }
