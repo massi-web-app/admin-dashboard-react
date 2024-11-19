@@ -1,7 +1,11 @@
 import {Outlet} from 'react-router-dom'
+import ChangeLanguage from "../components/change-language.jsx";
 const IndentifyLayout=()=>{
      return (
          <div className="main d-flex justify-content-center w-100">
+             <div className="nav navbar shadow-sm">
+                 <ChangeLanguage/>
+             </div>
              <main className="content d-flex p-0">
                  <div
                      className="container d-flex flex-column"
