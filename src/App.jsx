@@ -1,11 +1,33 @@
 import {RouterProvider} from "react-router-dom";
 import router from "./router.jsx";
 import "./core/i18n.js"
+import {useAppContext} from "./contexts/app/app-context.jsx";
+import {useEffect} from "react";
+
 function App() {
 
-  return (
-      <RouterProvider router={router}/>
-  )
+    const {theme} = useAppContext();
+
+    useEffect(() => {
+
+        const head = document.head;
+        const link = document.createElement("link");
+        link.rel = 'stylesheet';
+        link.href = `/css/${theme}.css`;
+        head.appendChild(link);
+        console.log(theme);
+
+        return () => {
+            console.log("Clean Up",link)
+            head.removeChild(link);
+        }
+
+    }, [theme])
+
+
+    return (
+        <RouterProvider router={router}/>
+    )
 }
 
 export default App

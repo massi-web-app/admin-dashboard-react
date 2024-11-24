@@ -1,9 +1,11 @@
 import {Outlet} from 'react-router-dom'
 import ChangeLanguage from "../components/change-language.jsx";
+import ChangeTheme from "../components/change.theme.jsx";
 const IndentifyLayout=()=>{
      return (
          <div className="main d-flex justify-content-center w-100">
-             <div className="nav navbar shadow-sm">
+             <div className="nav navbar shadow-sm justify-content-start gap-3">
+                 <ChangeTheme/>
                  <ChangeLanguage/>
              </div>
              <main className="content d-flex p-0">
