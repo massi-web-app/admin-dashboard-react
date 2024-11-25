@@ -15,10 +15,8 @@ function App() {
         link.rel = 'stylesheet';
         link.href = `/css/${theme}.css`;
         head.appendChild(link);
-        console.log(theme);
 
         return () => {
-            console.log("Clean Up",link)
             head.removeChild(link);
         }
 

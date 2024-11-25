@@ -1,7 +1,7 @@
 import {Link, useNavigation, useSubmit} from 'react-router-dom'
 import logo from '@assets/images/logo.svg'
 import {useForm, Form} from "react-hook-form";
-import {httpService} from "../../../core/http-service.js";
+import {httpService} from "@core/http-service.js";
 import {useActionData, useNavigate, useRouteError} from 'react-router-dom';
 import {useEffect, useTransition} from "react";
 import {useTranslation} from "react-i18next";

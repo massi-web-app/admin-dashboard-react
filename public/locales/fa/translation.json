@@ -20,5 +20,20 @@
       "PasswordTooShort": "رمز عبور باید حداقل 6 کارکتر باشد",
       "DuplicateUserName": "کاربری با این نام کاربری از قبل وجود دارد"
     }
+  },
+  "login": {
+    "title": "آموزش آنلاین",
+    "introMessage": " جهت ورود لازم است از طریق موبایل و رمز عبور خود اقدام کنید",
+    "singInIn": "درحال ارسال اطلاعات",
+    "singIn": "ثبت نام",
+    "mobile": "موبایل",
+    "password": "رمز عبور",
+    "register": "ثبت نام",
+    "areNotRegistered": "شما ثبت نام کرده اید ؟ ",
+    "validation": {
+      "mobileRequired": "موبایل الزامی میباشد",
+      "passwordRequired": "رمزعبور الزامی میباشد",
+      "IncorrectUserNameOrPassword": "رمز عبور یا نام کاربری نادرست است"
+    }
   }
 }
