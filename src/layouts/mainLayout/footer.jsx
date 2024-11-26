@@ -6,7 +6,7 @@ const Footer = () => {
 
     return (
         <footer className="footer">
-            Developed By {t('developed_by')}
+           {t('developed_by')}
         </footer>
     )
 }
