@@ -3,7 +3,7 @@ import Login, {loginAction} from "./features/identity/components/login.jsx";
 import Register from "./features/identity/components/register.jsx";
 import IndentifyLayout from "./layouts/indentify-layout.jsx";
 import {registerAction} from './features/identity/components/register.jsx'
-import MainLayout from "./layouts/main-layout.jsx";
+import MainLayout from "./layouts/mainLayout/main-layout.jsx";
 import {Courses} from "./pages/courses.jsx";
 
 const router = createBrowserRouter([
