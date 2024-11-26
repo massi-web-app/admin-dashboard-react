@@ -1,4 +1,5 @@
 {
+  "developed_by": "مسعود مرادی",
   "register": {
     "title": "آموزش آنلاین",
     "introMessage": "جهت استفاده از ویژگی های سایت کلاسبن لطفا ثبت نام کنید",
@@ -34,6 +35,21 @@
       "mobileRequired": "موبایل الزامی میباشد",
       "passwordRequired": "رمزعبور الزامی میباشد",
       "IncorrectUserNameOrPassword": "رمز عبور یا نام کاربری نادرست است"
+    }
+  },
+  "mainLayout": {
+    "sidebar": {
+      "subtitle": "آموزش آنلاین",
+      "courseManagement": "مدیریت همه دوره ها",
+      "allCourse": "همه درس ها",
+      "courseCategory": "دسته بندی دوره ها",
+      "courseDiscount": "تخفیف دوره ها",
+      "userManagement": "مدیریت کاربر",
+      "teacherManagement": "مدیریت مدرس ها",
+      "studentManagement": "مدیریت دانشجو ها",
+      "blogManagement": "مدیریت بلاگ",
+      "tagManagement": "مدیریت تگ",
+      "postManagement": "مدیریت پست ها"
     }
   }
 }

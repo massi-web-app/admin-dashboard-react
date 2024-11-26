@@ -1,8 +1,10 @@
 import logo from "@assets/images/logo-96804ef9.svg";
 import {useAppContext} from "../../contexts/app/app-context.jsx";
+import {useTranslation} from "react-i18next";
 
-const Sidebar=()=>{
-    const {showSidebar}=useAppContext();
+const Sidebar = () => {
+    const {showSidebar} = useAppContext();
+    const {t} = useTranslation();
 
     return (
         <aside className={`sidebar ${!showSidebar ? 'collapse' : ''}`}>
@@ -10,10 +12,13 @@ const Sidebar=()=>{
                 <a
                     className="sidebar-brand d-flex flex-column align-items-center pt-0 mb-0"><img
                     src={logo} style={{height: '80px'}}/><p className="mb-0"
-                                                            style={{fontSize: '90%'}}>پلتفرم آموزش
-                    آنلاین</p></a>
+                                                            style={{fontSize: '90%'}}>
+                    {t('mainLayout.sidebar.subtitle')}
+                </p></a>
                 <ul className="sidebar-nav pe-0">
-                    <li className="sidebar-header fw-bolder fs-lg">مدیریت دوره ها</li>
+                    <li className="sidebar-header fw-bolder fs-lg">
+                        {t('mainLayout.sidebar.subtitle')}
+                    </li>
                     <li className="sidebar-item"><a aria-current="page" className="sidebar-link active" href="/">
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
                              fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
@@ -21,7 +26,9 @@ const Sidebar=()=>{
                             <polygon points="23 7 16 12 23 17 23 7"></polygon>
                             <rect x="1" y="5" width="15" height="14" rx="2" ry="2"></rect>
                         </svg>
-                        <span className="align-middle me-2">همه دوره ها</span></a></li>
+                        <span className="align-middle me-2">
+                            {t('mainLayout.sidebar.courseManagement')}
+                        </span></a></li>
                     <li className="sidebar-item"><a className="sidebar-link" href="/course-categories">
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
                              fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
@@ -29,7 +36,9 @@ const Sidebar=()=>{
                             <polygon points="23 7 16 12 23 17 23 7"></polygon>
                             <rect x="1" y="5" width="15" height="14" rx="2" ry="2"></rect>
                         </svg>
-                        <span className="align-middle me-2">دسته بندی دوره ها</span></a></li>
+                        <span className="align-middle me-2">
+                              {t('mainLayout.sidebar.allCourse')}
+                        </span></a></li>
                     <li className="sidebar-item"><a className="sidebar-link">
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
                              fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
@@ -38,8 +47,12 @@ const Sidebar=()=>{
                             <circle cx="6.5" cy="6.5" r="2.5"></circle>
                             <circle cx="17.5" cy="17.5" r="2.5"></circle>
                         </svg>
-                        <span className="align-middle me-2">تخفیف دوره ها</span></a></li>
-                    <li className="sidebar-header fw-bolder fs-lg">مدیریت کاربرها</li>
+                        <span className="align-middle me-2">
+                            {t('mainLayout.sidebar.courseDiscount')}
+                        </span></a></li>
+                    <li className="sidebar-header fw-bolder fs-lg">
+                        {t('mainLayout.sidebar.userManagement')}
+                    </li>
                     <li className="sidebar-item"><a className="sidebar-link">
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
                              fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
@@ -47,7 +60,9 @@ const Sidebar=()=>{
                             <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
                             <circle cx="12" cy="7" r="4"></circle>
                         </svg>
-                        <span className="align-middle me-2">مدیریت مدرس ها</span></a></li>
+                        <span className="align-middle me-2">
+                            {t('mainLayout.sidebar.userManagement')}
+                        </span></a></li>
                     <li className="sidebar-item"><a className="sidebar-link">
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
                              fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
@@ -57,8 +72,12 @@ const Sidebar=()=>{
                             <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
                             <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
                         </svg>
-                        <span className="align-middle me-2">مدیریت دانشجوها</span></a></li>
-                    <li className="sidebar-header fw-bolder fs-lg">مدیریت بلاگ</li>
+                        <span className="align-middle me-2">
+                            {t('mainLayout.sidebar.studentManagement')}
+                        </span></a></li>
+                    <li className="sidebar-header fw-bolder fs-lg">
+                        {t('mainLayout.sidebar.blogManagement')}
+                    </li>
                     <li className="sidebar-item"><a className="sidebar-link">
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
                              fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
@@ -67,7 +86,9 @@ const Sidebar=()=>{
                                 d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"></path>
                             <line x1="7" y1="7" x2="7.01" y2="7"></line>
                         </svg>
-                        <span className="align-middle me-2">مدیریت تگ ها</span></a></li>
+                        <span className="align-middle me-2">
+                            {t('mainLayout.sidebar.tagManagement')}
+                        </span></a></li>
                     <li className="sidebar-item"><a className="sidebar-link">
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
                              fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
@@ -78,7 +99,9 @@ const Sidebar=()=>{
                             <line x1="16" y1="17" x2="8" y2="17"></line>
                             <polyline points="10 9 9 9 8 9"></polyline>
                         </svg>
-                        <span className="align-middle me-2">مدیریت پست ها</span></a></li>
+                        <span className="align-middle me-2">
+                            {t('mainLayout.sidebar.postManagement')}
+                        </span></a></li>
                 </ul>
             </div>
 

@@ -1,4 +1,6 @@
 {
+  "developed_by": "Masoud Moradi",
+  "classbon": "classbon",
   "register": {
     "title": "Online Education Platform",
     "introMessage": "Register to use the features of Classbon online education platform",
@@ -34,6 +36,21 @@
       "mobileRequired": "Mobile is Required",
       "passwordRequired": "Password is Required",
       "IncorrectUserNameOrPassword": "The username or password is incorrect"
+    }
+  },
+  "mainLayout": {
+    "sidebar": {
+      "subtitle": "Online Education Platform",
+      "courseManagement": "Manage All Courses",
+      "allCourse": "All Course",
+      "courseCategory": "Course Category",
+      "courseDiscount": "Course Discount",
+      "userManagement": "User Management",
+      "teacherManagement": "Teacher Management",
+      "studentManagement": "Student Management",
+      "blogManagement": "Blog Management",
+      "tagManagement": "Tag management",
+      "postManagement": "Post management"
     }
   }
 }
