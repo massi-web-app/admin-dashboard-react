@@ -4,7 +4,7 @@ import Register from "./features/identity/components/register.jsx";
 import IndentifyLayout from "./layouts/indentify-layout.jsx";
 import {registerAction} from './features/identity/components/register.jsx'
 import MainLayout from "./layouts/mainLayout/main-layout.jsx";
-import {Courses} from "./pages/courses.jsx";
+import {Courses, getListCourse} from "./pages/courses.jsx";
 
 const router = createBrowserRouter([
     {
@@ -12,8 +12,9 @@ const router = createBrowserRouter([
         element: <MainLayout/>,
         children: [
             {
-                element: <Courses/> ,
-                index: true
+                element: <Courses/>,
+                index: true,
+                loader: getListCourse
             }
         ]
     },

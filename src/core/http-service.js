@@ -7,5 +7,23 @@ export const httpService = axios.create({
 });
 
 
+const httpInterceptedService = axios.create({
+    baseURL: BASE_URL
+})
+ httpInterceptedService.interceptors.request.use(async (config) => {
 
+    const token = localStorage.getItem('token');
+    if (token) {
+        config.headers = {
+            Authorization: `Bearer ${token}`
+        }
+    }
+
+    return config;
+}, async (error) => {
+    return Promise.reject(error);
+})
+
+
+export {httpInterceptedService}
 
