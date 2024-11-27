@@ -10,7 +10,7 @@ export const httpService = axios.create({
 const httpInterceptedService = axios.create({
     baseURL: BASE_URL
 })
- httpInterceptedService.interceptors.request.use(async (config) => {
+httpInterceptedService.interceptors.request.use(async (config) => {
 
     const token = localStorage.getItem('token');
     if (token) {
@@ -24,6 +24,16 @@ const httpInterceptedService = axios.create({
     return Promise.reject(error);
 })
 
+
+httpInterceptedService.interceptors.response.use(
+    (responses) => responses,
+    async (error) => {
+        if (error.response.status === 401) {
+            window.location.href = "/login";
+        }
+        return Promise.reject(error);
+    }
+)
 
 export {httpInterceptedService}
 

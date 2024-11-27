@@ -1,6 +1,7 @@
 import logo from "@assets/images/logo-96804ef9.svg";
 import {useAppContext} from "../../contexts/app/app-context.jsx";
 import {useTranslation} from "react-i18next";
+import {Link} from "react-router-dom";
 
 const Sidebar = () => {
     const {showSidebar} = useAppContext();
@@ -9,17 +10,18 @@ const Sidebar = () => {
     return (
         <aside className={`sidebar ${!showSidebar ? 'collapse' : ''}`}>
             <div className="sidebar-content">
-                <a
+                <Link
+                    to={"/"}
                     className="sidebar-brand d-flex flex-column align-items-center pt-0 mb-0"><img
                     src={logo} style={{height: '80px'}}/><p className="mb-0"
                                                             style={{fontSize: '90%'}}>
                     {t('mainLayout.sidebar.subtitle')}
-                </p></a>
+                </p></Link>
                 <ul className="sidebar-nav pe-0">
                     <li className="sidebar-header fw-bolder fs-lg">
-                        {t('mainLayout.sidebar.subtitle')}
+                        {t('mainLayout.sidebar.courseManagement')}
                     </li>
-                    <li className="sidebar-item"><a aria-current="page" className="sidebar-link active" href="/">
+                    <li className="sidebar-item"><Link to={"/"} aria-current="page" className="sidebar-link active" href="/">
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
                              fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
                              stroke-linejoin="round" className="feather feather-video align-middle me-2">
@@ -28,8 +30,8 @@ const Sidebar = () => {
                         </svg>
                         <span className="align-middle me-2">
                             {t('mainLayout.sidebar.courseManagement')}
-                        </span></a></li>
-                    <li className="sidebar-item"><a className="sidebar-link" href="/course-categories">
+                        </span></Link></li>
+                    <li className="sidebar-item"><Link  className="sidebar-link" to="/course-categories">
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
                              fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
                              stroke-linejoin="round" className="feather feather-video align-middle me-2">
@@ -38,7 +40,7 @@ const Sidebar = () => {
                         </svg>
                         <span className="align-middle me-2">
                               {t('mainLayout.sidebar.allCourse')}
-                        </span></a></li>
+                        </span></Link></li>
                     <li className="sidebar-item"><a className="sidebar-link">
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
                              fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"

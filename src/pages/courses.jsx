@@ -1,8 +1,11 @@
 import {httpInterceptedService} from "@core/http-service.js";
 import {CourseList} from "../features/courses/components/course-list.jsx";
+import {Await, useLoaderData} from "react-router-dom";
+import {Suspense} from "react";
 
 
 export const Courses = () => {
+    const data = useLoaderData();
 
     return (
         <div className="row">
@@ -12,7 +15,14 @@ export const Courses = () => {
                         افزودن دوره جدید
                     </a>
                 </div>
-                <CourseList/>
+                <Suspense fallback={<p className="text-info">درحال دریافت اطلاعات</p>}>
+                    <Await resolve={data.courses}>
+                        {
+                            (loadCourses) => <CourseList courses={loadCourses}/>
+                        }
+                    </Await>
+                </Suspense>
+
             </div>
         </div>
     )
@@ -20,6 +30,15 @@ export const Courses = () => {
 
 
 export async function getListCourse() {
+
+    return {
+        courses: loadCourses()
+    }
+
+
+}
+
+const loadCourses = async () => {
     const response = await httpInterceptedService.get('/Course/list');
     return response.data;
 }
