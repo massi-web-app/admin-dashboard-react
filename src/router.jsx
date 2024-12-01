@@ -5,7 +5,8 @@ import IndentifyLayout from "./layouts/indentify-layout.jsx";
 import {registerAction} from './features/identity/components/register.jsx'
 import MainLayout from "./layouts/mainLayout/main-layout.jsx";
 import {Courses, getListCourse} from "./pages/courses.jsx";
-import {CourseCategories} from "./pages/course-categories.jsx";
+import {CourseCategories, getCategories} from "./pages/course-categories.jsx";
+import {CourseDetails, getCourseDetails} from "./features/courses/components/course-details.jsx";
 
 const router = createBrowserRouter([
     {
@@ -18,8 +19,14 @@ const router = createBrowserRouter([
                 loader: getListCourse
             },
             {
-                path:"course-categories",
+                path: "course-categories",
                 element: <CourseCategories/>,
+                loader:getCategories
+            },
+            {
+                path: '/courses/:id',
+                element: <CourseDetails/>,
+                loader: getCourseDetails
             }
         ]
     },

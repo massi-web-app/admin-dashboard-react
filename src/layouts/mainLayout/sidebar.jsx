@@ -39,7 +39,7 @@ const Sidebar = () => {
                             <rect x="1" y="5" width="15" height="14" rx="2" ry="2"></rect>
                         </svg>
                         <span className="align-middle me-2">
-                              {t('mainLayout.sidebar.allCourse')}
+                              {t('mainLayout.sidebar.courseCategory')}
                         </span></Link></li>
                     <li className="sidebar-item"><a className="sidebar-link">
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"

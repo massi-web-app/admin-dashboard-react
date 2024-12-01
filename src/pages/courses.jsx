@@ -1,6 +1,6 @@
 import {httpInterceptedService} from "@core/http-service.js";
 import {CourseList} from "../features/courses/components/course-list.jsx";
-import {Await, useLoaderData} from "react-router-dom";
+import {Await, defer, useLoaderData} from "react-router-dom";
 import {Suspense} from "react";
 
 
@@ -31,9 +31,11 @@ export const Courses = () => {
 
 export async function getListCourse() {
 
-    return {
+    return defer({
+
         courses: loadCourses()
-    }
+
+    });
 
 
 }

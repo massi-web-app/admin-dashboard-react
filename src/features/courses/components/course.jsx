@@ -1,4 +1,6 @@
-export const Course = ({title, coverImageUrl, courseLevel, description, duration, numOfReviews}) => {
+import {Link} from "react-router-dom";
+
+export const Course = ({title, coverImageUrl, courseLevel, description, duration, numOfReviews,id}) => {
 
     return (
         <div className="card">
@@ -8,7 +10,11 @@ export const Course = ({title, coverImageUrl, courseLevel, description, duration
                 <div className="badge bg-primary my-2 fw-bolder">
                     {courseLevel}
                 </div>
-                <h4 className="mb-0">{title}</h4>
+                <h4 className="mb-0">
+                    <Link to={`/courses/${id}`}>
+                        {title}
+                    </Link>
+                </h4>
             </div>
 
             <div className="card-body px-2 pt-2">
