@@ -22,7 +22,7 @@ export const CourseCategories = () => {
                 <Await resolve={data.categories}>
 
                     {
-                        (loadedCategories)=> <CategoryList categories={loadedCategories}/>
+                        (loadedCategories) => <CategoryList categories={loadedCategories}/>
                     }
 
                 </Await>
@@ -33,14 +33,18 @@ export const CourseCategories = () => {
 }
 
 
-export const getCategories = async () => {
+export const getCategories = async ({request}) => {
     return {
-        categories: loaderCategories()
+        categories: loaderCategories(request)
     }
 }
 
-const loaderCategories = async () => {
-    const response = await httpInterceptedService.get(`/CourseCategory/sieve `);
+const loaderCategories = async (request) => {
+    const page = new URL(request.url).searchParams.get('page') || 1;
+    const pageSize=1;
+    let url=`/CourseCategory/sieve`;
+    url+=`?page=${page}&pageSize=${pageSize}`;
+    const response = await httpInterceptedService.get(url);
     return response.data;
 }
 

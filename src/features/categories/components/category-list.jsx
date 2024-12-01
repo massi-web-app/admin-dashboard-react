@@ -1,10 +1,17 @@
+import {Pagination} from "../../../components/pagination.jsx";
+import {useNavigate, useNavigation} from "react-router-dom";
+import {Spinner} from "../../../components/spinner.jsx";
+
 export const CategoryList = ({categories: {data, totalRecords}}) => {
+
+    const navigation = useNavigation();
 
     return (
         <>
             <div className="row">
                 <div className="col-12">
                     <div className="card">
+                        {navigation.state !== 'idle' && <Spinner/>}
                         <table className="table table-striped">
                             <thead>
                             <tr>
@@ -41,6 +48,9 @@ export const CategoryList = ({categories: {data, totalRecords}}) => {
                             })}
                             </tbody>
                         </table>
+                        <div className="card-footer">
+                            <Pagination totalRecords={totalRecords}/>
+                        </div>
                     </div>
                 </div>
             </div>
