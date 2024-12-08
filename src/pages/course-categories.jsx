@@ -8,7 +8,6 @@ export const CourseCategories = () => {
 
     const data = useLoaderData();
 
-
     return (
         <div className="row">
             <div className="col-12">
@@ -20,11 +19,9 @@ export const CourseCategories = () => {
             </div>
             <Suspense fallback={<p className="text-info">در حال دریافت اطلاعات</p>}>
                 <Await resolve={data.categories}>
-
                     {
                         (loadedCategories) => <CategoryList categories={loadedCategories}/>
                     }
-
                 </Await>
             </Suspense>
 
@@ -39,11 +36,14 @@ export const getCategories = async ({request}) => {
     }
 }
 
+
 const loaderCategories = async (request) => {
     const page = new URL(request.url).searchParams.get('page') || 1;
-    const pageSize=1;
-    let url=`/CourseCategory/sieve`;
-    url+=`?page=${page}&pageSize=${pageSize}`;
+    const pageSize = import.meta.env.VITE_PAGE_SIZE;
+    const variables=
+
+    let url = `/CourseCategory/sieve`;
+    url += `?page=${page}&pageSize=${pageSize}`;
     const response = await httpInterceptedService.get(url);
     return response.data;
 }
