@@ -1,9 +1,11 @@
 import {Pagination} from "../../../components/pagination.jsx";
 import {useNavigate, useNavigation} from "react-router-dom";
 import {Spinner} from "../../../components/spinner.jsx";
+import {useCategoryContext} from "./category-context.jsx";
 
-export const CategoryList = ({categories: {data, totalRecords}}) => {
+export const CategoryList = ({categories: {data, totalRecords}, deleteCategory}) => {
 
+    const {setCategory} = useCategoryContext();
     const navigation = useNavigation();
 
     return (
@@ -25,7 +27,7 @@ export const CategoryList = ({categories: {data, totalRecords}}) => {
                                     <tr key={category.id}>
                                         <td>{category.name}</td>
                                         <td className="table-action">
-                                            <a href="#" className="ms-3">
+                                            <a className="ms-3" onClick={() => setCategory(category)}>
                                                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
                                                      viewBox="0 0 24 24" fill="none" stroke="currentColor"
                                                      strokeWidth="2" className="feather feather-edit-2 align-middle">
@@ -33,7 +35,7 @@ export const CategoryList = ({categories: {data, totalRecords}}) => {
                                                         d="M17 3a2.828 2.828 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5L17 3z"></path>
                                                 </svg>
                                             </a>
-                                            <a href="#">
+                                            <a onClick={() => deleteCategory(category.id + 1)}>
                                                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
                                                      viewBox="0 0 24 24" fill="none" stroke="currentColor"
                                                      strokeWidth="2" className="feather feather-trash align-middle">

@@ -7,6 +7,7 @@ import MainLayout from "./layouts/mainLayout/main-layout.jsx";
 import {Courses, getListCourse} from "./pages/courses.jsx";
 import {CourseCategories, getCategories} from "./pages/course-categories.jsx";
 import {CourseDetails, getCourseDetails} from "./features/courses/components/course-details.jsx";
+import {CategoryProvider} from "./features/categories/components/category-context.jsx";
 
 const router = createBrowserRouter([
     {
@@ -20,8 +21,12 @@ const router = createBrowserRouter([
             },
             {
                 path: "course-categories",
-                element: <CourseCategories/>,
-                loader:getCategories
+                element: (
+                    <CategoryProvider>
+                        <CourseCategories/>
+                    </CategoryProvider>
+                ),
+                loader: getCategories,
             },
             {
                 path: '/courses/:id',

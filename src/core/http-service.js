@@ -28,7 +28,7 @@ httpInterceptedService.interceptors.request.use(async (config) => {
 httpInterceptedService.interceptors.response.use(
     (responses) => responses,
     async (error) => {
-        if (error.response.status === 401) {
+        if (error.response?.status === 401) {
             window.location.href = "/login";
         }
         return Promise.reject(error);
