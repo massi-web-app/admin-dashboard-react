@@ -18,7 +18,7 @@ export const AddOrUpdateCategory = ({setShowAddCategory}) => {
             setValue("name", category.name);
             setValue("id", category.id);
         }
-    }, [category])
+    }, [category]);
 
     const onSubmit = (data) => {
         setShowAddCategory(false);
